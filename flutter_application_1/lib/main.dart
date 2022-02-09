@@ -29,7 +29,8 @@ void main() {
           margin: EdgeInsets.all(40),
           decoration: BoxDecoration(
               color: Colors.green,
-              border: Border.all(color: Colors.black, width: 40),
+              border:
+                  Border.all(color: Color.fromARGB(149, 247, 0, 255), width: 3),
               shape: BoxShape.circle),
           child: Text(
               "My favorite hobby is Swimming , love it because it gives me strong arms",

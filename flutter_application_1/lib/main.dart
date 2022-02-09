@@ -22,7 +22,7 @@ void main() {
         ),
         body: Center(
             child: Container(
-          padding: EdgeInsets.only(left: 20.0),
+          padding: EdgeInsets.all(20),
           height: 250,
           width: 250,
           alignment: Alignment.center,

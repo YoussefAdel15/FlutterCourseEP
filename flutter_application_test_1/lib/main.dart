@@ -14,12 +14,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int counter = 0;
-  List<double> size = [10.0, 20.0, 30.0, 40.0];
+  List<double> size = [10.0, 20.0, 30.0, 40.0, 50.0];
   int index = 0;
   List<String> names = ["Hi", "Hello"];
   void fun1() {
     setState(() {
-      if (counter < 3) {
+      if (counter < 4) {
         counter++;
       } else {
         counter = 0;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:favorite_button/favorite_button.dart';
 
 void main() {
   runApp(MaterialApp(home: MyHomePage()));
@@ -62,11 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void Function() {
     setState(() {
       if (isGridView) {
-        viewtype = 1;
+        viewtype = 0;
         print(isGridView);
         isGridView = false;
       } else {
-        viewtype = 0;
+        viewtype = 1;
         print(isGridView);
         isGridView = true;
       }
@@ -78,19 +79,23 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 147, 150, 149),
-        title: Text(
-          "SeTronics",
-          style: TextStyle(
-            color: Color.fromARGB(115, 32, 11, 11),
-            fontSize: 25,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.bold,
+        title: Center(
+          child: Text(
+            "SeTronics",
+            style: TextStyle(
+              color: Color.fromARGB(115, 32, 11, 11),
+              fontSize: 25,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         actions: [
-          InkWell(
-            onTap: Function,
-            child: Icon(view[viewtype], size: 24.0, color: Colors.black),
+          Center(
+            child: InkWell(
+              onTap: Function,
+              child: Icon(view[viewtype], size: 24.0, color: Colors.black),
+            ),
           )
         ],
       ),
@@ -114,11 +119,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 200,
                       width: 200,
                       child: Image.asset('assets/${images[index]}')),
-                  footer: Center(
-                    child: Text(
-                      "${price[index]}",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                  footer: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        child: Text(
+                          "Price ${price[index]}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              backgroundColor: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        child: FavoriteButton(
+                          valueChanged: (_) {},
+                        ),
+                      )
+                    ],
                   ),
                 );
               })
@@ -131,6 +150,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     leading: Image.asset('assets/${images[index]}'),
                     title: Text(Products[index]),
                     subtitle: Text('Price ${price[index]}'),
+                    trailing: FavoriteButton(
+                      valueChanged: (_) {},
+                    ),
                   ),
                 );
               }),

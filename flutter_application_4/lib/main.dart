@@ -113,7 +113,7 @@ class _Cont2State extends State<Cont2> {
     });
   }
 
-  void fun() {
+  void loginCheck() {
     bool usernameFound = false;
     bool passwordFound = false;
     setState(() {
@@ -282,7 +282,7 @@ class _Cont2State extends State<Cont2> {
                         width: 2,
                       ),
                     ),
-                    onPressed: fun,
+                    onPressed: loginCheck,
                     child: Text('LogIn')),
               )
             ],

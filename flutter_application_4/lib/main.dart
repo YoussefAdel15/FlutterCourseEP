@@ -169,68 +169,74 @@ class _Cont2State extends State<Cont2> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              topRight: Radius.circular(50),
-            )),
-            width: screenWidth,
-            height: 50,
-            child: Center(
-              child: Text(
-                Conditions[conditionV],
-                style: TextStyle(color: Colors.green, fontSize: 20),
+          Flexible(
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50),
+                topRight: Radius.circular(50),
+              )),
+              width: screenWidth,
+              height: 50,
+              child: Center(
+                child: Text(
+                  Conditions[conditionV],
+                  style: TextStyle(color: Colors.green, fontSize: 20),
+                ),
               ),
             ),
           ),
-          TextField(
-            controller: myController1,
-            maxLength: 15,
-            decoration: InputDecoration(
-                hintText: 'Enter Your UserName',
-                labelText: 'UserName',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(
-                    style: BorderStyle.none,
+          Flexible(
+            child: TextField(
+              controller: myController1,
+              maxLength: 15,
+              decoration: InputDecoration(
+                  hintText: 'Enter Your UserName',
+                  labelText: 'UserName',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: BorderSide(
+                      style: BorderStyle.none,
+                    ),
                   ),
-                ),
-                suffixIcon: Icon(Icons.person),
-                contentPadding:
-                    const EdgeInsets.only(left: 14.0, bottom: 12.0, top: 0.0),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromARGB(255, 147, 150, 149)),
-                  borderRadius: BorderRadius.circular(25.7),
-                )),
-            keyboardType: TextInputType.text,
+                  suffixIcon: Icon(Icons.person),
+                  contentPadding:
+                      const EdgeInsets.only(left: 14.0, bottom: 12.0, top: 0.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 147, 150, 149)),
+                    borderRadius: BorderRadius.circular(25.7),
+                  )),
+              keyboardType: TextInputType.text,
+            ),
           ),
-          TextField(
-            controller: myController2,
-            maxLength: 15,
-            obscureText: isVisiable,
-            decoration: InputDecoration(
-                hintText: 'Enter Your Password',
-                labelText: 'Password',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(
-                    style: BorderStyle.none,
+          Flexible(
+            child: TextField(
+              controller: myController2,
+              maxLength: 15,
+              obscureText: isVisiable,
+              decoration: InputDecoration(
+                  hintText: 'Enter Your Password',
+                  labelText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: BorderSide(
+                      style: BorderStyle.none,
+                    ),
                   ),
-                ),
-                suffixIcon: IconButton(
-                  icon: Icon(v[visibility]),
-                  onPressed: Visibility,
-                ),
-                contentPadding:
-                    const EdgeInsets.only(left: 14.0, bottom: 12.0, top: 0.0),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromARGB(255, 147, 150, 149)),
-                  borderRadius: BorderRadius.circular(25.7),
-                )),
-            keyboardType: TextInputType.text,
+                  suffixIcon: IconButton(
+                    icon: Icon(v[visibility]),
+                    onPressed: Visibility,
+                  ),
+                  contentPadding:
+                      const EdgeInsets.only(left: 14.0, bottom: 12.0, top: 0.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 147, 150, 149)),
+                    borderRadius: BorderRadius.circular(25.7),
+                  )),
+              keyboardType: TextInputType.text,
+            ),
           ),
           Container(
             child: Row(
@@ -249,41 +255,45 @@ class _Cont2State extends State<Cont2> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
-                width: 100,
-                height: 50,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 114, 112, 112),
-                      padding: EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      side: BorderSide(
-                        color: Colors.black,
-                        width: 2,
+              Flexible(
+                child: SizedBox(
+                  width: 100,
+                  height: 50,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 114, 112, 112),
+                        padding: EdgeInsets.all(10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        side: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      _showDialog(context);
-                    },
-                    child: Text('SignUp')),
+                      onPressed: () {
+                        _showDialog(context);
+                      },
+                      child: Text('SignUp')),
+                ),
               ),
-              SizedBox(
-                width: 100,
-                height: 50,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 114, 112, 112),
-                      padding: EdgeInsets.all(10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      side: BorderSide(
-                        color: Colors.black,
-                        width: 2,
+              Flexible(
+                child: SizedBox(
+                  width: 100,
+                  height: 50,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 114, 112, 112),
+                        padding: EdgeInsets.all(10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        side: BorderSide(
+                          color: Colors.black,
+                          width: 2,
+                        ),
                       ),
-                    ),
-                    onPressed: loginCheck,
-                    child: Text('LogIn')),
+                      onPressed: loginCheck,
+                      child: Text('LogIn')),
+                ),
               )
             ],
           ),

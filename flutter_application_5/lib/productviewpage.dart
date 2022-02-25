@@ -27,41 +27,56 @@ class productviewpage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         // ignore: prefer_const_constructors
         children: [
-          Stack(
-            children: [
-              Image.asset("images/${Product.image}"),
-              Positioned(
-                bottom: 5,
-                right: 5,
-                child: IconButton(
-                    onPressed: () {
-                      if (Product.fav) {
-                        Product.fav = false;
-                      } else {
-                        Product.fav = true;
-                      }
-                      print(Product.fav);
-                    },
-                    icon: Icon(Icons.favorite,
-                        color:
-                            Product.fav == true ? Colors.red : Colors.black45)),
-              ),
-            ],
-          ),
-          Text(
-            "${Product.ProductName}",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+          Flexible(
+            fit: FlexFit.loose,
+            flex: 2,
+            child: Stack(
+              children: [
+                Image.asset("images/${Product.image}"),
+                Positioned(
+                  bottom: 5,
+                  right: 5,
+                  child: IconButton(
+                      onPressed: () {
+                        if (Product.fav) {
+                          Product.fav = false;
+                        } else {
+                          Product.fav = true;
+                        }
+                        print(Product.fav);
+                      },
+                      icon: Icon(Icons.favorite,
+                          color: Product.fav == true
+                              ? Colors.red
+                              : Colors.black45)),
+                ),
+              ],
             ),
           ),
-          Text(
-            "${Product.descreption}",
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+          Flexible(
+            fit: FlexFit.loose,
+            child: Text(
+              "${Product.ProductName}",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-          Text(
-            "${Product.price}\$",
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+          Flexible(
+            flex: 2,
+            fit: FlexFit.loose,
+            child: Text(
+              "${Product.descreption}",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+            ),
+          ),
+          Flexible(
+            fit: FlexFit.loose,
+            child: Text(
+              "${Product.price}\$",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+            ),
           )
         ],
       ),

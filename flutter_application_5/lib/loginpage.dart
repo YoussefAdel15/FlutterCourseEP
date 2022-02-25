@@ -91,8 +91,13 @@ class _Cont2State extends State<Cont2> {
   final myController2 = TextEditingController();
   String inputName = '';
   String inputPass = '';
-  final List<String> Usernames = ["Youssef Adel", "Ahmed", "YoussefAdel123"];
-  final List<String> Passwords = ["123456", "Ahmed123", "1552001"];
+  final List<String> Usernames = [
+    "Youssef Adel",
+    "Ahmed",
+    "YoussefAdel123",
+    "1"
+  ];
+  final List<String> Passwords = ["123456", "Ahmed123", "1552001", "1"];
   final List<String> Conditions = [
     " ",
     "Login Successfully",

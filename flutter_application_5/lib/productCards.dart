@@ -12,14 +12,10 @@ class productCards extends StatefulWidget {
 }
 
 class _productCardsState extends State<productCards> {
-  List<IconData> love = [Icons.favorite_border, Icons.favorite];
-  int loveindex = 0;
   List<Widget> cardslist = [];
-  List<Color> color = [Colors.black, Colors.red];
   data Data = data();
-  int i = 0;
   List<Widget> cards() {
-    for (i; i < Data.products.length; i++) {
+    for (int i = 0; i < Data.products.length; i++) {
       cardslist.add(Card(
           elevation: 3.0,
           shape: RoundedRectangleBorder(
@@ -49,15 +45,19 @@ class _productCardsState extends State<productCards> {
                               right: 5,
                               child: InkWell(
                                 onTap: () {
-                                  if (Data.products[0].getFav()) {
-                                    Data.products[0].setFav(false);
-                                  } else {
-                                    Data.products[0].setFav(true);
-                                  }
-                                  print(Data.products[0].getFav());
+                                  setState(() {
+                                    if (Data.products[i].fav == true) {
+                                      Data.products[i].fav = false;
+                                    } else {
+                                      Data.products[i].fav = true;
+                                    }
+                                  });
+                                  print(Data.products[i].fav);
                                 },
-                                child: Icon(love[loveindex],
-                                    color: color[loveindex], size: 40),
+                                child: Icon(Icons.favorite,
+                                    color: Data.products[i].fav
+                                        ? Colors.red
+                                        : Colors.black45),
                               ),
                             )
                           ],

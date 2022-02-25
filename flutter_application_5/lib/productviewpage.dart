@@ -1,37 +1,70 @@
-// // ignore_for_file: unnecessary_string_interpolations
+// ignore_for_file: unnecessary_string_interpolations
 
-// import 'package:flutter/material.dart';
-// import 'package:flutter_application_5/product.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_5/product.dart';
 
-// class productviewpage extends StatefulWidget {
-//   final product Product;
-//   const productviewpage({Key? key, required this.Product}) : super(key: key);
-  
-//   @override
-//   _productviewpageState createState() => _productviewpageState();
-// }
-
-// class _productviewpageState extends State<productviewpage> {
-//   data Data = data();
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Color.fromARGB(255, 147, 150, 149),
-//         title: Center(
-//           child: Text("SeTronics",
-//               style: TextStyle(
-//                 color: Color.fromARGB(115, 32, 11, 11),
-//                 fontSize: 25,
-//                 fontStyle: FontStyle.italic,
-//                 fontWeight: FontWeight.bold,
-//               )),
-//         ),
-//       ),
-//       body: Column(
-//         // ignore: prefer_const_constructors
-//         children: [Image.asset("${Data.products[].getImage()}"), Text("data")],
-//       ),
-//     );
-//   }
-// }
+class productviewpage extends StatelessWidget {
+  final product Product;
+  productviewpage({Key? key, required this.Product}) : super(key: key);
+  int favView = 1;
+  List<IconData> Fav = [Icons.favorite_border, Icons.favorite];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 147, 150, 149),
+        title: Center(
+          child: Text("SeTronics",
+              style: TextStyle(
+                color: Color.fromARGB(115, 32, 11, 11),
+                fontSize: 25,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              )),
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // ignore: prefer_const_constructors
+        children: [
+          Stack(
+            children: [
+              Image.asset("images/${Product.image}"),
+              Positioned(
+                bottom: 5,
+                right: 5,
+                child: IconButton(
+                    onPressed: () {
+                      if (Product.fav) {
+                        Product.fav = false;
+                      } else {
+                        Product.fav = true;
+                      }
+                      print(Product.fav);
+                    },
+                    icon: Icon(Icons.favorite,
+                        color:
+                            Product.fav == true ? Colors.red : Colors.black45)),
+              ),
+            ],
+          ),
+          Text(
+            "${Product.ProductName}",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            "${Product.descreption}",
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+          ),
+          Text(
+            "${Product.price}\$",
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+          )
+        ],
+      ),
+    );
+  }
+}

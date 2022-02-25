@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_5/favoritePage.dart';
 import 'productCards.dart';
 
 class productspage extends StatefulWidget {
@@ -11,9 +12,7 @@ class productspage extends StatefulWidget {
 class _productspageState extends State<productspage> {
   final Screens = [
     productCards(),
-    Center(
-      child: Text("Favorite"),
-    ),
+    favoritePage(),
     Center(
       child: Text("Cart"),
     ),
